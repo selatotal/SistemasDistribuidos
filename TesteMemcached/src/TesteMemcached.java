@@ -16,6 +16,7 @@ public class TesteMemcached {
 		// Inicializa uma conexao com o Memcached
 		XMemcachedClientBuilder builder = new XMemcachedClientBuilder(AddrUtil.getAddresses("localhost:11211"));
 		try {
+			// Cria um cliente Memcached
 			MemcachedClient client = builder.build();
 
 			String nome = client.get("chaveNome");
@@ -72,10 +73,28 @@ public class TesteMemcached {
 					"        }" + 
 					"    ]" + 
 					"}";
-			ListServersModel model = gson.fromJson(json, ListServersModel.class);
-			System.out.println(model);
 			
+			// Converte um JSON para um objeto (no caso um ListServersModel)
+			ListServersModel model = gson.fromJson(json, ListServersModel.class);
+			
+			// Converte um Objeto para um JSON
+			json = gson.toJson(model);
+			
+			// adiciona o JSON no Memcached
 			client.set("SD_ListServers", 0, gson.toJson(model));
+			
+			// Busca o JSON do Memcached
+			json = client.get("SD_ListServers");
+			model = gson.fromJson(json, ListServersModel.class);
+			
+			// Atualiza o objeto
+			model.servers.get(0).active = !model.servers.get(0).active;
+			
+			// Salva novamente no Memcached
+			json = gson.toJson(model);
+			client.set("SD_ListServers", 0, gson.toJson(model));
+			
+			client.shutdown();
 					
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -53,7 +53,7 @@
 }
 ```
 
-## Chave: SD_<servidor>_totalReq
+## Chave: SD_&lt;servidor&gt;_totalReq
 * Objetivo: Conter o total de requisições a um servidor
 * Operações:
   - Buscar o total de requisições realizadas a um servidor
@@ -63,10 +63,10 @@
 9999999999
 ```
 
-# Chaves de Gastos de Óegão
-  - SD_GastoOrgao_<codigoOrgao>_<YYYY>
-  - SD_GastoOrgao_<codigoOrgao>_<YYYYMM>
-  - SD_GastoOrgao_<codigoOrgao>_<YYYYMMDD>
+# Chaves de Gastos de Órgão
+  - SD_GastoOrgao_&lt;codigoOrgao&gt;_&lt;YYYY&gt;
+  - SD_GastoOrgao_&lt;codigoOrgao&gt;_&lt;YYYYMM&gt;
+  - SD_GastoOrgao_&lt;codigoOrgao&gt;_&lt;YYYYMMDD&gt;
 * Objetivo: Conter o total de gastos de um órgão por ano (YYYY), mês (YYYYMM) ou dia (YYYYMMDD)
 * Operações:
   - Buscar o gasto do órgão

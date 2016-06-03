@@ -4,9 +4,9 @@ O aluno deverá implementar um sistema distribuído para que seja possível visu
 O aluno deverá implementar tanto um cliente como um processo servidor que será uma parte do sistema distribuído.
 
 # Origem dos dados
-Arquivo de gastos efetuados em 2015 pelo Governo do Estado do RS disponibilizados no Portal da Transparência: (http://www.transparencia.rs.gov.br/ARQUIVOS/Gasto-RS-2015.zip)
+Arquivo de gastos efetuados em 2015 pelo Governo do Estado do RS disponibilizados no Portal da Transparência: http://www.transparencia.rs.gov.br/ARQUIVOS/Gasto-RS-2015.zip
 * Este arquivo ZIP contém um arquivo .CSV de aproximadamente 3GB, contendo o registro de 3.791.594 gastos efetuados.
-* O layout do arquivo CSV pode ser verificado no arquivo (LayoutGastos.pdf)
+* O layout do arquivo CSV pode ser verificado no arquivo [LayoutGastos.pdf](LayoutGastos.pdf)
 
 # Definição
 Cada um dos grupos será responsável por determinados setores de gastos. Estes setores devem ser configuráveis na aplicação via um arquivo texto de configuração.

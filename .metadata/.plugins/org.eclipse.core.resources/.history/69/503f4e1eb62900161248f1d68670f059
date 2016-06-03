@@ -1,0 +1,38 @@
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
+import net.rubyeye.xmemcached.MemcachedClient;
+import net.rubyeye.xmemcached.XMemcachedClient;
+import net.rubyeye.xmemcached.XMemcachedClientBuilder;
+import net.rubyeye.xmemcached.exception.MemcachedException;
+import net.rubyeye.xmemcached.utils.AddrUtil;
+
+public class TesteMemcached {
+
+	public static void main(String[] args) {
+
+		// Inicializa uma conexao com o Memcached
+		XMemcachedClientBuilder builder = new XMemcachedClientBuilder(AddrUtil.getAddresses("localhost:11211"));
+		try {
+			MemcachedClient client = builder.build();
+
+			String nome = client.get("chaveNome");
+			
+			System.out.println(nome);
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (TimeoutException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (MemcachedException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+
+	}
+
+}

@@ -236,6 +236,9 @@ Onde:
 
 # O cliente do usuário
 O cliente deve conectar a um dos servidores disponíveis. Qualquer servidor deve ser apto a receber requisições de qualquer cliente.
+Assim como no trabalho de G1, o cliente deve informar IP/Porta do servidor que ele quer conectar.
+A partir da conexão, o cliente deve listar todos os setores e órgãos disponíveis para consulta e campos para informar ANO e/ou MÊS e/ou DIA (não deverá aceitar datas inválidas). O usuário pode informar apenas ano (YYYY), ano e mês (MM/YYYY) ou ano, mês e dia (DD/MM/YYYY).
+Ao efetuar a busca, o cliente deve enviar a requisição ao servidor ao qual ele está conectado e exibir o total de gastos por mês ou a informação de que nenhum gasto foi encontrado.
 
 # Protocolo de Comunicação entre Cliente e Servidor
 

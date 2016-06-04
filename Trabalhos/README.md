@@ -93,11 +93,31 @@ Todas as chaves serão no formato texto e todos os valores em formato JSON.
 * Cada processo é responsável por incluir/atualizar as chaves no servidor Memcached. Caso o valor de uma chave não exista, ela deve ser criada pelo processo.
 * IMPORTANTE: Não utilizar o comando "replace" do Memcached. Para atualizar uma chave realize o "get" dela, atualize o valor e depois faça o "set".
 * O processo cliente NÃO DEVE armazenar informações de gastos no Memcached. Apenas o processo servidor deve armazenar dados no Memcached.
+* O processo cliente não deve realizar requisições para servidores que não estejam ativos. Além disso, caso tente realizar uma requisição para um servidor e verifique que ele não está mais respondendo, ele deve alterar o status do servidor para inativo (active=false) e atualizar a lista de servidores.
+
+# Arquivo de configuração do servidor
+
+O processo servidor deve possuir um arquivo de configuração com o nome config.json, conforme definido abaixo:
+
+```json
+{
+  "serverName" : "serverTales",
+  "portListen" : 1111,
+  "sectorList" : [ 1, 2, 3, 14, 25, 56, 71, 89]
+}
+
+```
+
+Onde:
+* serverName = Nome idenficador do servidor. Deve ser único em todo o sistema distribuído
+* portListen = Número da porta TCP que o servidor deve receber requisições dos clientes
+* sectorList = Lista com o código dos setores que o servidor irá responder
 
 # Definição da lista de Chaves a serem armazenadas 
 
 ##Chave: SD_ListServers
 * Objetivo: Buscar a lista de servidores ativos do sistema distribuído e de quais órgãos ele possui informação
+* Esta chave deve ser atualizada pelos servidores a cada n segundos (especificada no arquivo de configuração abaixo) e, caso tenha sido alterada, o processo deve refazer a sua configuração da lista de servidores de acordo com o novo resultado.
 * Operações:
   - Buscar a lista de servidores ativos
   - Atualizar a lista para que o processo possa ser adicionado à lista e/ou alterada a sua situação
@@ -207,18 +227,20 @@ Todas as chaves serão no formato texto e todos os valores em formato JSON.
 }
 ```
 
-# O cliente
+# O cliente do usuário
 O cliente deve conectar a um dos servidores disponíveis. Qualquer servidor deve ser apto a receber requisições de qualquer cliente.
 
-## Protocolo de Comunicação entre Cliente e Servidor
+# Protocolo de Comunicação entre Cliente e Servidor
 
-### Busca de Setores e Órgãos
+Este protocolo deve ser seguido pelos clientes do servidor (seja ele o cliente do usuário ou outro servidor)
+
+## Busca de Setores e Órgãos
 * Retorna a lista de setores e órgãos disponíveis para consulta no Sistema Distribuído, independente de qual processo é responsável por cada setor.
-#### Requisição
+### Requisição
 ```
 GETSECTORLIST
 ```
-#### Resposta
+### Resposta
 ```json
 {
     "sectors": [
@@ -254,9 +276,10 @@ GETSECTORLIST
 }
 ```
 
-### Total de Gastos de um Setor em um período
+## Total de Gastos de um Setor em um período
 * Retorna o total de gastos que um setor realizou em um determinado período
-#### Requisição
+
+### Requisição
 ```
 GETSECTOR <codigo_setor> <periodo>
 
@@ -268,7 +291,7 @@ onde:
     - YYYYMMDD -> (ex: 20150101) Dia. Mostra todos os gastos durante o ano/mês/dia especificado
 ```
 
-#### Resposta
+### Resposta
 ````json
 {
     "sectorCode": 1,
@@ -277,9 +300,10 @@ onde:
 }
 ````
 
-### Total de Gastos de um Órgão em um período
+## Total de Gastos de um Órgão em um período
 * Retorna o total de gastos que um órgão de um setor realizou em um determinado período
-#### Requisição
+
+### Requisição
 ```
 GETDEPARTMENT <codigo_setor>_<codigo_orgao> <periodo>
 
@@ -292,7 +316,7 @@ onde:
     - YYYYMMDD -> (ex: 20150101) Dia. Mostra todos os gastos durante o ano/mês/dia especificado
 ```
 
-#### Resposta
+### Resposta
 ````json
 {
     "sectorCode": 1,

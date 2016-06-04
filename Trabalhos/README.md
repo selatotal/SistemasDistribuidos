@@ -15,8 +15,7 @@ Arquivo de gastos efetuados em 2015 pelo Governo do Estado do RS disponibilizado
 * Este arquivo ZIP contém um arquivo .CSV de aproximadamente 3GB, contendo o registro de 3.791.594 gastos efetuados.
 * O layout do arquivo CSV pode ser verificado no arquivo [LayoutGastos.pdf](LayoutGastos.pdf)
 
-# Definição
-Cada um dos grupos será responsável por determinados setores de gastos. Estes setores devem ser configuráveis na aplicação via um arquivo texto de configuração.
+Cada um dos servidores será responsável por determinados setores de gastos. Estes setores devem ser configuráveis na aplicação via um arquivo texto de configuração.
 A quantidade mínima de registros esperados que cada servidor deverá tratar é de 1.000.000 de registros.
 A saber, os setores e a quantidade de registros por setor pode ser verificada na lista abaixo:
 

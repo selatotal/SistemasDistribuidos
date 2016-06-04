@@ -4,7 +4,7 @@ O aluno deverá implementar um sistema distribuído para que seja possível visu
 O aluno deverá implementar tanto um cliente como um processo servidor que será uma parte do sistema distribuído.
 
 # Origem dos dados
-Arquivo de gastos efetuados em 2015 pelo Governo do Estado do RS disponibilizados no Portal da Transparência: http://www.transparencia.rs.gov.br/ARQUIVOS/Gasto-RS-2015.zip
+Arquivo de gastos efetuados em 2015 pelo Governo do Estado do RS disponibilizados no Portal da Transparência: http://www.transparencia.rs.gov.br/ARQUIVOS/Gasto-RS-2015.zip. Para ver as primeiras 10.000 linhas do arquivo clique [aqui](Primeiras10000.csv)
 * Este arquivo ZIP contém um arquivo .CSV de aproximadamente 3GB, contendo o registro de 3.791.594 gastos efetuados.
 * O layout do arquivo CSV pode ser verificado no arquivo [LayoutGastos.pdf](LayoutGastos.pdf)
 
@@ -189,9 +189,9 @@ Todas as chaves serão no formato texto e todos os valores em formato JSON.
 ```
 
 # Chaves de Gastos de Órgão
-  - SD_ExpenseDepartment_&lt;codigoSetor&gt;_&lt;codigoOrgao&gt;_&lt;YYYY&gt;
-  - SD_ExpenseDepartment_&lt;codigoSetor&gt;_&lt;codigoOrgao&gt;_&lt;YYYYMM&gt;
-  - SD_ExpenseDepartment_&lt;codigoSetor&gt;_&lt;codigoOrgao&gt;_&lt;YYYYMMDD&gt;
+  - SD_ExpenseDepartment_&lt;codigoSetor&gt; _ &lt;codigoOrgao&gt; _ &lt;YYYY&gt;
+  - SD_ExpenseDepartment_&lt;codigoSetor&gt; _ &lt;codigoOrgao&gt; _ &lt;YYYYMM&gt;
+  - SD_ExpenseDepartment_&lt;codigoSetor&gt; _ &lt;codigoOrgao&gt; _ &lt;YYYYMMDD&gt;
 * Objetivo: Conter o total de gastos de um órgão de um setor por ano (YYYY), mês (YYYYMM) ou dia (YYYYMMDD)
 * Operações:
   - Buscar o gasto do órgão
@@ -207,3 +207,98 @@ Todas as chaves serão no formato texto e todos os valores em formato JSON.
 }
 ```
 
+# O cliente
+O cliente deve conectar a um dos servidores disponíveis. Qualquer servidor deve ser apto a receber requisições de qualquer cliente.
+
+## Protocolo de Comunicação entre Cliente e Servidor
+
+### Busca de Setores e Órgãos
+* Retorna a lista de setores e órgãos disponíveis para consulta no Sistema Distribuído, independente de qual processo é responsável por cada setor.
+#### Requisição
+```
+GETSECTORLIST
+```
+#### Resposta
+```json
+{
+    "sectors": [
+        {
+            "sectorCode": 1,
+            "sectorDescription": "setor 1",
+            "departments": [
+                {
+                    "departmentCode": 1,
+                    "departmentDescription": "department 1"
+                },
+                {
+                    "departmentCode": 2,
+                    "departmentDescription": "department 2"
+                }
+            ]
+        },
+        {
+            "sectorCode": 2,
+            "sectorDescription": "setor 2",
+            "departments": [
+                {
+                    "departmentCode": 3,
+                    "departmentDescription": "department 3"
+                },
+                {
+                    "departmentCode": 4,
+                    "departmentDescription": "department 4"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### Total de Gastos de um Setor em um período
+* Retorna o total de gastos que um setor realizou em um determinado período
+#### Requisição
+```
+GETSECTOR <codigo_setor> <periodo>
+
+onde: 
+  - codigo_setor = Código do setor que está sendo pequisado
+  - período que deseja pesquisar em um dos seguintes formatos:
+    - YYYY -> (ex: 2015) Ano. Mostra todos os gastos durante o ano especificado
+    - YYYYMM -> (ex: 201501) Mês. Mostra todos os gastos durante o ano/mês especificado
+    - YYYYMMDD -> (ex: 20150101) Dia. Mostra todos os gastos durante o ano/mês/dia especificado
+```
+
+#### Resposta
+````json
+{
+    "sectorCode": 1,
+    "sectorDescription": "setor 1",
+    "totalExpenses": 999999999.99
+}
+````
+
+### Total de Gastos de um Órgão em um período
+* Retorna o total de gastos que um órgão de um setor realizou em um determinado período
+#### Requisição
+```
+GETDEPARTMENT <codigo_setor>_<codigo_orgao> <periodo>
+
+onde: 
+  - codigo_setor = Código do setor que está sendo pequisado
+  - codigo_orgao = Código do órgão que está sendo pequisado
+  - período que deseja pesquisar em um dos seguintes formatos:
+    - YYYY -> (ex: 2015) Ano. Mostra todos os gastos durante o ano especificado
+    - YYYYMM -> (ex: 201501) Mês. Mostra todos os gastos durante o ano/mês especificado
+    - YYYYMMDD -> (ex: 20150101) Dia. Mostra todos os gastos durante o ano/mês/dia especificado
+```
+
+#### Resposta
+````json
+{
+    "sectorCode": 1,
+    "sectorDescription": "setor 1",
+    "departmentCode": 1,
+    "departmentDescription": "department 1",
+    "totalExpenses": 999999999.99
+}
+````

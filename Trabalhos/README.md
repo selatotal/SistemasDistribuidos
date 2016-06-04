@@ -1,3 +1,10 @@
+# Dados de entrega
+* Data: 01/07/2016
+* Peso: 10 pontos da nota de G2
+* Entregar os arquivos-fonte do cliente e servidor e os binários das bibliotecas utilizadas. Para evitar problemas, o melhor é fazer um ZIP de toda a pasta do projeto.
+* Entregar os scripts de criação de base de dados (caso utilize)
+* Criar um manual de instruções de como configurar o ambiente para testes. Caso o professor não consiga configurar o ambiente utilizando apenas as instruções do roteiro de testes, o trabalho terá nota 0 (zero)
+
 # Definição
 
 O aluno deverá implementar um sistema distribuído para que seja possível visualizar os gastos por setor e/ou órgão do Governo do Estado do RS em 2015.
@@ -236,6 +243,7 @@ Este protocolo deve ser seguido pelos clientes do servidor (seja ele o cliente d
 
 ## Busca de Setores e Órgãos
 * Retorna a lista de setores e órgãos disponíveis para consulta no Sistema Distribuído, independente de qual processo é responsável por cada setor.
+
 ### Requisição
 ```
 GETSECTORLIST

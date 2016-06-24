@@ -109,6 +109,8 @@ O processo servidor deve possuir um arquivo de configuração com o nome config.
 {
   "serverName" : "serverTales",
   "portListen" : 1111,
+  "memchachedServer" : "10.1.1.1",
+  "memcachedPort" : 11211,
   "sectorList" : [ 1, 2, 3, 14, 25, 56, 71, 89]
 }
 
@@ -117,6 +119,8 @@ O processo servidor deve possuir um arquivo de configuração com o nome config.
 Onde:
 * serverName = Nome idenficador do servidor. Deve ser único em todo o sistema distribuído
 * portListen = Número da porta TCP que o servidor deve receber requisições dos clientes
+* memcachedServer = IP onde o servidor de memcached está disponível
+* memcachedPort = Porta que o servidor de memcached está ouvindo as requisições
 * sectorList = Lista com o código dos setores que o servidor irá responder
 
 # Definição da lista de Chaves a serem armazenadas 

@@ -109,7 +109,7 @@ O processo servidor deve possuir um arquivo de configuração com o nome config.
 {
   "serverName" : "serverTales",
   "portListen" : 1111,
-  "memchachedServer" : "10.1.1.1",
+  "memcachedServer" : "10.1.1.1",
   "memcachedPort" : 11211,
   "sectorList" : [ 1, 2, 3, 14, 25, 56, 71, 89]
 }

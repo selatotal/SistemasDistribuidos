@@ -118,7 +118,7 @@ Ex:
 Exclui um arquivo do Servidor de Arquivos
 #### Requisição
 ```
-GET <nomeArquivo>
+DELETE <nomeArquivo>
 ```
 onde:
 - <nomeArquivo> - Nome do arquivo a ser armazenado

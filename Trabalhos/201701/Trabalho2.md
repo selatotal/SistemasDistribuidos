@@ -153,7 +153,7 @@ São permitidas configurações adicionais, desde que combinadas com o professor
   - SD_Data_&lt;periodo&gt;
   - SD_Data_&lt;periodo&gt;_&lt;aeroporto&gt;
   - SD_Data_&lt;periodo&gt;__&lt;companhia aérea&gt;
-  - SD_Data_&lt;periodo&gt;_&lt;aeroporto&gt;_&lt;companhia aérea&gt;
+  - SD_Data_&lt;periodo&gt; _ &lt;aeroporto&gt; _ &lt;companhia aérea&gt;
 * Objetivo: Conter os dados de retorno por período, período/aeroporto, período/aeroporto/companhia aérea
 * O período deve estar no formato YYYY (ano), YYYYMM (ano/mês) ou YYYYMMDD (ano/mês/dia)
 * Operações:

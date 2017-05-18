@@ -1,7 +1,3 @@
-http://stat-computing.org/dataexpo/2009/the-data.html
-
-
-
 # Dados de entrega
 * Data: 06/07/2016
 * Peso: 10 pontos da nota de G2
@@ -154,10 +150,10 @@ São permitidas configurações adicionais, desde que combinadas com o professor
 ```
 
 # Chaves de Busca de Dados
-  - SD_Data_&lt;periodo&gt;_&lt;_&lt;
-  - SD_Data_&lt;periodo&gt;_&lt;_&lt;_&lt;aeroporto&gt;
-  - SD_Data_&lt;periodo&gt;_&lt;__&lt;companhia aérea&gt;
-  - SD_Data_&lt;periodo&gt;_&lt;_&lt;_&lt;aeroporto&gt;_&lt;companhia aérea&gt;
+  - SD_Data_&lt;periodo&gt;
+  - SD_Data_&lt;periodo&gt;_&lt;aeroporto&gt;
+  - SD_Data_&lt;periodo&gt;__&lt;companhia aérea&gt;
+  - SD_Data_&lt;periodo&gt;_&lt;aeroporto&gt;_&lt;companhia aérea&gt;
 * Objetivo: Conter os dados de retorno por período, período/aeroporto, período/aeroporto/companhia aérea
 * O período deve estar no formato YYYY (ano), YYYYMM (ano/mês) ou YYYYMMDD (ano/mês/dia)
 * Operações:

@@ -116,14 +116,14 @@ São permitidas configurações adicionais, desde que combinadas com o professor
             "name": "Aeroporto Internacional Salgado Filho",
             "city": "Porto Alegre",
             "lat": -30.0277,
-            "long": -51.2287
+            "lng": -51.2287
         },
         {
             "iata": "FLN",
             "name": "Aeroporto Internacional Hercilio Luz",
             "city": "Florianopolis",
             "lat": -27.6701,
-            "long": -48.546
+            "lng": -48.546
         }
     ]
 }
@@ -211,14 +211,14 @@ GETAIRPORTS
             "name": "Aeroporto Internacional Salgado Filho",
             "city": "Porto Alegre",
             "lat": -30.0277,
-            "long": -51.2287
+            "lng": -51.2287
         },
         {
             "iata": "FLN",
             "name": "Aeroporto Internacional Hercilio Luz",
             "city": "Florianopolis",
             "lat": -27.6701,
-            "long": -48.546
+            "lng": -48.546
         }
     ]
 }

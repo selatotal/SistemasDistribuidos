@@ -56,10 +56,11 @@ O processo servidor deve possuir um arquivo de configuração com o nome config.
 ```json
 {
   "serverName" : "serverTales",
-  "portListen" : 1111,
+  "serverIP" : "127.0.0.1",
+  "portListen" : 1111,
   "memcachedServer" : "10.1.1.1",
   "memcachedPort" : 11211,
-  "yearData" : [1999, 2000]
+  "yearData" : [1999, 2000]
 }
 
 ```
@@ -75,7 +76,7 @@ São permitidas configurações adicionais, desde que combinadas com o professor
 
 # Definição da lista de Chaves a serem armazenadas 
 
-##Chave: SD_ListServers
+## Chave: SD_ListServers
 * Objetivo: Buscar a lista de servidores ativos do sistema distribuído e de quais anos ele possui informação
 * Esta chave deve ser atualizada pelos servidores a cada n segundos (especificada no arquivo de configuração abaixo) e, caso tenha sido alterada, o processo deve refazer a sua configuração da lista de servidores de acordo com o novo resultado.
 * Operações:

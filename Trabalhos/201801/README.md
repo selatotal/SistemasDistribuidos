@@ -10,6 +10,7 @@ O usuário deve poder:
 - Buscar dados de alunos e turmas
 - Cadastrar dados de alunos e turmas
 - Excluir dados de alunos e turmas
+- Todos os componentes devem poder requisições de mais de um cliente ao mesmo tempo
 
 ## Componentes
 

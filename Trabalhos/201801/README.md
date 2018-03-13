@@ -50,7 +50,7 @@ Os arquivos devem poder ser alterados sem a necessidade de compilar o código no
 
 ### Servidor de Cache
 
-```json
+```text
 {
 	port: 1234,                      // Porta onde vai aceitar requisições
 	managerServerHost: "127.0.0.1",  // Endereço IP ou Host do servidor de gerenciamento
@@ -61,7 +61,7 @@ Os arquivos devem poder ser alterados sem a necessidade de compilar o código no
 
 ### Servidor de Gerenciamento
 
-```json
+```text
 {
 	port: 1235,                      // Porta onde vai aceitar requisições
 	studentServerHost: "127.0.0.1",  // Endereço IP ou Host do servidor de dados de alunos
@@ -73,7 +73,7 @@ Os arquivos devem poder ser alterados sem a necessidade de compilar o código no
 
 ### Servidor de Alunos/Turmas
 
-```json
+```text
 {
 	port: 1236,                    // Porta onde vai aceitar requisições
 	datafile: "/tmp/student.data"  // Localização do arquivo de dados

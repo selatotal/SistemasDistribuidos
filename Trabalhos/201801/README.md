@@ -503,3 +503,4 @@ Código  | Descrição              | Usado quando
 1       | Registro Já Cadastrado | Quando tenta-se cadastrar um aluno ou turma com o mesmo ID
 2       | Erro de Relacionamento | Quando tenta-se cadastrar um aluno em uma turma que não existe
 3       | Servidor Indisponível  | Algum dos componentes dos quais o serviço necessita não está disponível no momento
+4       | Registro não encontrado| Quando se tenta consultar um registro que não existe

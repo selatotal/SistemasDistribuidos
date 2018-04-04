@@ -53,10 +53,10 @@ Os arquivos devem poder ser alterados sem a necessidade de compilar o código no
 
 ```text
 {
-	port: 1234,                      // Porta onde vai aceitar requisições
-	managerServerHost: "127.0.0.1",  // Endereço IP ou Host do servidor de gerenciamento
-	managerServerPort: 1235,         // Porta onde o servidor de gerenciamento recebe requisições
-	cacheTimeout: 10000              // Tempo (em ms) de expiração do cache local
+	"port": 1234,                      // Porta onde vai aceitar requisições
+	"managerServerHost": "127.0.0.1",  // Endereço IP ou Host do servidor de gerenciamento
+	"managerServerPort": 1235,         // Porta onde o servidor de gerenciamento recebe requisições
+	"cacheTimeout": 10000              // Tempo (em ms) de expiração do cache local
 }
 ```
 
@@ -64,11 +64,11 @@ Os arquivos devem poder ser alterados sem a necessidade de compilar o código no
 
 ```text
 {
-	port: 1235,                      // Porta onde vai aceitar requisições
-	studentServerHost: "127.0.0.1",  // Endereço IP ou Host do servidor de dados de alunos
-	studentServerPort: 1236,         // Porta onde o servidor de dados de alunos recebe requisições
-	classServerHost: "127.0.0.1",    // Endereço IP ou Host do servidor de dados de turmas
-	classServerPort: 1237            // Porta onde o servidor de dados de turmas recebe requisições
+	"port": 1235,                      // Porta onde vai aceitar requisições
+	"studentServerHost": "127.0.0.1",  // Endereço IP ou Host do servidor de dados de alunos
+	"studentServerPort": 1236,         // Porta onde o servidor de dados de alunos recebe requisições
+	"classServerHost": "127.0.0.1",    // Endereço IP ou Host do servidor de dados de turmas
+	"classServerPort": 1237            // Porta onde o servidor de dados de turmas recebe requisições
 }
 ```
 
@@ -76,8 +76,8 @@ Os arquivos devem poder ser alterados sem a necessidade de compilar o código no
 
 ```text
 {
-	port: 1236,                    // Porta onde vai aceitar requisições
-	datafile: "/tmp/student.data"  // Localização do arquivo de dados
+	"port": 1236,                    // Porta onde vai aceitar requisições
+	"datafile": "/tmp/student.data"  // Localização do arquivo de dados
 }
 ```
 

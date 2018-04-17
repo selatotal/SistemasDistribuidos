@@ -171,11 +171,11 @@ Ex:
 /turma/1
 ```
 
-#### Resposta
+#### Resposta do Servidor de Gerenciamento
 ```
 { 
 	"idTurma": <idTurma>,
-	"nomeTurma": "<nomeTurma>"
+	"nomeTurma": "<nomeTurma>",
 	"alunos": [
 		{
 			"idAluno": <idAluno1>,
@@ -211,6 +211,25 @@ Ex:
 }
 ```
 
+#### Resposta do Servidor de Turmas
+```
+{ 
+	"idTurma": <idTurma>,
+	"nomeTurma": "<nomeTurma>"
+}
+```
+onde:
+- <idTurma> - id da turma
+- <nomeTurma> - Nome da turma
+
+Ex:
+```
+{ 
+	"idTurma": 1,
+	"nomeTurma": "Banco de Dados"
+}
+```
+
 ### Busca de Alunos
 Retorna os dados de um determinado aluno
 #### Requisição
@@ -225,7 +244,7 @@ Ex:
 /aluno/1
 ```
 
-#### Resposta
+#### Resposta do Servidor de Gerenciamento
 ```
 { 
 	"idAluno": <idAluno>,
@@ -260,6 +279,42 @@ Ex:
 		{
 			"idTurma": 2,
 			"nomeTurma": "Compiladores"
+		}
+	]
+}
+```
+
+#### Resposta do Servidor de Aluno
+```
+{ 
+	"idAluno": <idAluno>,
+	"nomeAluno": "<nomeAluno>",
+	"turmas": [
+		{
+			"idTurma": <idTurma1>,
+		},
+		{
+			"idTurma": <idTurma1>,
+		}
+	]
+}
+```
+onde:
+- <idAluno> - id do Aluno
+- <nomeAluno> - Nome do aluno
+- <turmas> - Lista de turmas onde o aluno está matriculado
+
+Ex:
+```
+{ 
+	"idAluno": 1,
+	"nomeAluno": "Tales Viegas",
+	"turmas": [
+		{
+			"idTurma": 1,
+		},
+		{
+			"idTurma": 2,
 		}
 	]
 }
@@ -324,13 +379,13 @@ Retorna os dados de todas as turmas cadastradas
 /turmas
 ```
 
-#### Resposta
+#### Resposta do Servidor de Gerenciamento
 ```
 {
 	"turmas": [
 		{
 			"idTurma": <idTurma>,
-			"nomeTurma": "<nomeTurma>"
+			"nomeTurma": "<nomeTurma>",
 			"alunos": [
 				{
 					"idAluno": <idAluno1>,
@@ -344,7 +399,7 @@ Retorna os dados de todas as turmas cadastradas
 		},
 		{
 			"idTurma": <idTurma>,
-			"nomeTurma": "<nomeTurma>"
+			"nomeTurma": "<nomeTurma>",
 			"alunos": [
 				{
 					"idAluno": <idAluno1>,
@@ -358,7 +413,7 @@ Retorna os dados de todas as turmas cadastradas
 		},
 		{
 			"idTurma": <idTurma>,
-			"nomeTurma": "<nomeTurma>"
+			"nomeTurma": "<nomeTurma>",
 			"alunos": [
 				{
 					"idAluno": <idAluno1>,
@@ -410,6 +465,42 @@ Ex:
 }
 ```
 
+#### Resposta do Servidor de Turmas
+```
+{
+	"turmas": [
+		{
+			"idTurma": <idTurma>,
+			"nomeTurma": "<nomeTurma>"
+		},
+		{
+			"idTurma": <idTurma>,
+			"nomeTurma": "<nomeTurma>"
+		},
+		{
+			"idTurma": <idTurma>,
+			"nomeTurma": "<nomeTurma>"
+		}
+	] 
+}
+```
+
+Ex:
+```
+{
+	"turmas" : [
+		{ 
+			"idTurma": 1,
+			"nomeTurma": "Banco de Dados"
+		},
+		{ 
+			"idTurma": 2,
+			"nomeTurma": "Compiladores"
+		}
+	] 
+}
+```
+
 ### Busca de Todos os Alunos
 Retorna os dados de todos os alunos cadastrados
 #### Requisição
@@ -422,7 +513,7 @@ Ex:
 /alunos
 ```
 
-#### Resposta
+#### Resposta do Servidor de Gerenciamento
 ```
 { 
 	"alunos": [
@@ -487,6 +578,70 @@ Ex:
 				{
 					"idTurma": 2,
 					"nomeTurma": "Compiladores"
+				}
+			]
+		}
+	]
+}
+```
+
+#### Resposta do Servidor de Alunos
+```
+{ 
+	"alunos": [
+		{
+			"idAluno": <idAluno>,
+			"nomeAluno": "<nomeAluno>",
+			"turmas": [
+				{
+					"idTurma": <idTurma1>,
+				},
+				{
+					"idTurma": <idTurma1>,
+				}
+			]
+		},
+		{
+			"idAluno": <idAluno>,
+			"nomeAluno": "<nomeAluno>",
+			"turmas": [
+				{
+					"idTurma": <idTurma1>,
+				},
+				{
+					"idTurma": <idTurma1>,
+				}
+			],
+		}
+	]
+}
+```
+
+Ex:
+```
+{ 
+	"alunos": [
+		{
+			"idAluno": 1,
+			"nomeAluno": "Tales Viegas",
+			"turmas": [
+				{
+					"idTurma": 1,
+				},
+				{
+					"idTurma": 2,
+				}
+			]
+		},
+		{
+			"idAluno": 2,
+			"nomeAluno": "Carlos Zeve",
+			"turmas": [
+				{
+					"idTurma": 1,
+				},
+				{
+					"idTurma": 2,
 				}
 			]
 		}

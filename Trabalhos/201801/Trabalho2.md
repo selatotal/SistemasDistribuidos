@@ -44,7 +44,6 @@ Todas as chaves serão no formato texto e todos os valores em formato JSON.
 * Cada processo é responsável por incluir/atualizar as chaves no servidor Memcached. Caso o valor de uma chave não exista, ela deve ser criada pelo processo.
 * IMPORTANTE: Não utilizar o comando "replace" do Memcached. Para atualizar uma chave realize o "get" dela, atualize o valor e depois faça o "set".
 * O processo cliente NÃO DEVE armazenar informação alguma no Memcached. Apenas o processo servidor deve armazenar dados no Memcached.
-* O processo cliente não deve realizar requisições para servidores que não estejam ativos. Além disso, caso tente realizar uma requisição para um servidor e verifique que ele não está mais respondendo, ele deve alterar o status do servidor para inativo (active=false) e atualizar a lista de servidores.
 
 # Arquivo de configuração do servidor
 

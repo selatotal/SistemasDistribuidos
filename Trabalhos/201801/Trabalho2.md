@@ -4,6 +4,8 @@
 * Entregar os arquivos-fonte de todos os componentes criados, da aplicação cliente e servidor e os binários das bibliotecas utilizadas (caso o download e configuração não esteja dentro do script de build). Para evitar problemas, o melhor é fazer um ZIP de toda a pasta do projeto ou subir o projeto no Github e enviar o link.
 * Entregar os scripts de criação de base de dados (caso utilize)
 * Criar um manual de instruções de como configurar o ambiente para testes. Caso o professor não consiga configurar o ambiente utilizando apenas as instruções do roteiro de testes, o trabalho terá nota 0 (zero)
+* Requisições locais para o servidor devem demorar, no máximo, 500ms para responder para o cliente.
+* Requisições que o servidor deve requisitar para outro servidor devem demorar, no máximo, 1s para responder para o cliente.
 
 # Definição
 
